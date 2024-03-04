@@ -27,6 +27,7 @@ This tool helps you translate Minecraft Java server plugin configuration yml fil
 3. **Run the Script**:
    
    - `python3 main.py`
+   - Delete the remaining test files in the following two directories
    - Place one or more yml configuration files into the specified input folder `Original_Files`.
    - Run the script and check the output folder `ChatGPT_Translater_Output`.
 4. **Check Translation Results**:
@@ -46,6 +47,190 @@ This tool helps you translate Minecraft Java server plugin configuration yml fil
    # Use English prompts
    _prompt = ChatGPT_Prompts.prompts["en"]
    ```
+
+## Test comparison 👁‍🗨
+
+> Original yml file (English), from DeluxeMenus plugin.
+
+```
+menu_title: '&8Vip Skill Tree | &6Baker'
+open_command:
+- jobs skilltree Baker vip
+- job skilltree Baker vip
+size: 45
+open_requirement:
+  minimum_requirements: 1
+  stop_at_success: true
+  requirements:
+    perm1:
+     type: has permission
+     permission: 'jobs.all.vipmaxlevel'
+    perm2:
+     type: has permission
+     permission: 'jobs.baker.vipmaxlevel'
+update_interval: 1
+items:
+################## VIP Skill Tree Levels
+  '2':
+    material: red_stained_glass
+    slot: 4
+    priority: 3
+    display_name: '&4&nLevel 1'
+    hide_attributes: true
+    lore:
+    - '&cAttention! Rewards can only be claimed'
+    - '&cafter you level up to the shown level.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a150'
+    - '&#eb984e➟ &d1.5&d&lXP &dboost for 2h'
+    - '&#eb984e➟ &e0.5&e&lP &eboost for 2h'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '3':
+    material: lime_stained_glass
+    slot: 4
+    priority: 2
+    view_requirement:
+      requirements:
+        claimed:
+         type: has permission
+         permission: 'jobs.vipbaker.level1'
+    display_name: '&a&nLevel 1'
+    hide_attributes: true
+    lore:
+    - '&7Reward has been claimed.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a150'
+    - '&#eb984e➟ &d1.5&d&lXP &dboost for 2h'
+    - '&#eb984e➟ &e0.5&e&lP &eboost for 2h'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '4':
+    material: orange_stained_glass
+    slot: 4
+    priority: 1
+    update: true
+    view_requirement:
+      requirements:
+        level:
+         type: javascript
+         expression: "%jobsr_user_jlevel_Baker% >= 1"
+        perm:
+         type: "!has permission"
+         permission: 'jobs.vipbaker.level1'
+    display_name: '&#e67e22&nLevel 1'
+    hide_attributes: true
+    lore:
+    - '&aClick to claim your reward!'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a150'
+    - '&#eb984e➟ &d1.5&d&lXP &dboost for 2h'
+    - '&#eb984e➟ &e0.5&e&lP &eboost for 2h'
+    left_click_commands:
+    - '[console] lp user %player_name% permission set jobs.vipbaker.level1'
+    - '[console] eco give %player_name% 150'
+    - '[console] lp user %player_name% permission settemp jobs.boost.Baker.exp.1.5 true 2h'
+    - '[console] lp user %player_name% permission settemp jobs.boost.Baker.points.0.5 true 2h'
+    - '[close]'
+```
+
+> Output file (Chinese)
+
+```
+menu_title: '&8Vip技能树 | &6面包师'
+open_command:
+- jobs skilltree Baker vip
+- job skilltree Baker vip
+size: 45
+open_requirement:
+  minimum_requirements: 1
+  stop_at_success: true
+  requirements:
+    perm1:
+     type: has permission
+     permission: 'jobs.all.vipmaxlevel'
+    perm2:
+     type: has permission
+     permission: 'jobs.baker.vipmaxlevel'
+update_interval: 1
+items:
+################## VIP技能树等级
+  '2':
+    material: red_stained_glass
+    slot: 4
+    priority: 3
+    display_name: '&4&n等级 1'
+    hide_attributes: true
+    lore:
+    - '&c注意！奖励只能在达到所示等级后领取。'
+    - ''
+    - '&6奖励：'
+    - '&#eb984e➟ &a&l$&a150'
+    - '&#eb984e➟ &d1.5&d&l经验提升2小时'
+    - '&#eb984e➟ &e0.5&e&l点数提升2小时'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '3':
+    material: lime_stained_glass
+    slot: 4
+    priority: 2
+    view_requirement:
+      requirements:
+        claimed:
+         type: has permission
+         permission: 'jobs.vipbaker.level1'
+    display_name: '&a&n等级 1'
+    hide_attributes: true
+    lore:
+    - '&7奖励已领取。'
+    - ''
+    - '&6奖励：'
+    - '&#eb984e➟ &a&l$&a150'
+    - '&#eb984e➟ &d1.5&d&l经验提升2小时'
+    - '&#eb984e➟ &e0.5&e&l点数提升2小时'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '4':
+    material: orange_stained_glass
+    slot: 4
+    priority: 1
+    update: true
+    view_requirement:
+      requirements:
+        level:
+         type: javascript
+         expression: "%jobsr_user_jlevel_Baker% >= 1"
+        perm:
+         type: "!has permission"
+         permission: 'jobs.vipbaker.level1'
+    display_name: '&#e67e22&n等级 1'
+    hide_attributes: true
+    lore:
+    - '&a点击以领取奖励！'
+    - ''
+    - '&6奖励：'
+    - '&#eb984e➟ &a&l$&a150'
+    - '&#eb984e➟ &d1.5&d&l经验提升2小时'
+    - '&#eb984e➟ &e0.5&e&l点数提升2小时'
+    left_click_commands:
+    - '[console] lp user %player_name% permission set jobs.vipbaker.level1'
+    - '[console] eco give %player_name% 150'
+    - '[console] lp user %player_name% permission settemp jobs.boost.Baker.exp.1.5 true 2h'
+    - '[console] lp user %player_name% permission settemp jobs.boost.Baker.points.0.5 true 2h'
+    - '[close]'
+```
+
 ## Notes ⚠️
 
 * Translation results may require manual review to ensure accuracy of terminology and context.

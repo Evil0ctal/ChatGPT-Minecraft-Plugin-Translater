@@ -27,6 +27,7 @@
 3. **运行脚本**：
 
 - `python3 main.py`
+- 删除下面两个目录内的残留测试文件
 - 将单个或多个yml配置文件放入指定的输入文件夹`Original_Files`
 - 执行脚本，查看输出文件夹`ChatGPT_Translater_Output`
 
@@ -49,6 +50,189 @@ prompt = ChatGPT_Prompts.prompts["zh"]
 _prompt = ChatGPT_Prompts.prompts["en"]
 ```
 
+## 测试对比 👁‍🗨
+
+> 原始yml文件（英文），来自DeluxeMenus插件。
+
+```
+menu_title: '&8Vip Skill Tree | &6Baker'
+open_command:
+- jobs skilltree Baker vip
+- job skilltree Baker vip
+size: 45
+open_requirement:
+  minimum_requirements: 1
+  stop_at_success: true
+  requirements:
+    perm1:
+     type: has permission
+     permission: 'jobs.all.vipmaxlevel'
+    perm2:
+     type: has permission
+     permission: 'jobs.baker.vipmaxlevel'
+update_interval: 1
+items:
+################## VIP Skill Tree Levels
+  '2':
+    material: red_stained_glass
+    slot: 4
+    priority: 3
+    display_name: '&4&nLevel 1'
+    hide_attributes: true
+    lore:
+    - '&cAttention! Rewards can only be claimed'
+    - '&cafter you level up to the shown level.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a150'
+    - '&#eb984e➟ &d1.5&d&lXP &dboost for 2h'
+    - '&#eb984e➟ &e0.5&e&lP &eboost for 2h'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '3':
+    material: lime_stained_glass
+    slot: 4
+    priority: 2
+    view_requirement:
+      requirements:
+        claimed:
+         type: has permission
+         permission: 'jobs.vipbaker.level1'
+    display_name: '&a&nLevel 1'
+    hide_attributes: true
+    lore:
+    - '&7Reward has been claimed.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a150'
+    - '&#eb984e➟ &d1.5&d&lXP &dboost for 2h'
+    - '&#eb984e➟ &e0.5&e&lP &eboost for 2h'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '4':
+    material: orange_stained_glass
+    slot: 4
+    priority: 1
+    update: true
+    view_requirement:
+      requirements:
+        level:
+         type: javascript
+         expression: "%jobsr_user_jlevel_Baker% >= 1"
+        perm:
+         type: "!has permission"
+         permission: 'jobs.vipbaker.level1'
+    display_name: '&#e67e22&nLevel 1'
+    hide_attributes: true
+    lore:
+    - '&aClick to claim your reward!'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a150'
+    - '&#eb984e➟ &d1.5&d&lXP &dboost for 2h'
+    - '&#eb984e➟ &e0.5&e&lP &eboost for 2h'
+    left_click_commands:
+    - '[console] lp user %player_name% permission set jobs.vipbaker.level1'
+    - '[console] eco give %player_name% 150'
+    - '[console] lp user %player_name% permission settemp jobs.boost.Baker.exp.1.5 true 2h'
+    - '[console] lp user %player_name% permission settemp jobs.boost.Baker.points.0.5 true 2h'
+    - '[close]'
+```
+
+> 输出文件（中文）
+
+```
+menu_title: '&8Vip技能树 | &6面包师'
+open_command:
+- jobs skilltree Baker vip
+- job skilltree Baker vip
+size: 45
+open_requirement:
+  minimum_requirements: 1
+  stop_at_success: true
+  requirements:
+    perm1:
+     type: has permission
+     permission: 'jobs.all.vipmaxlevel'
+    perm2:
+     type: has permission
+     permission: 'jobs.baker.vipmaxlevel'
+update_interval: 1
+items:
+################## VIP技能树等级
+  '2':
+    material: red_stained_glass
+    slot: 4
+    priority: 3
+    display_name: '&4&n等级 1'
+    hide_attributes: true
+    lore:
+    - '&c注意！奖励只能在达到所示等级后领取。'
+    - ''
+    - '&6奖励：'
+    - '&#eb984e➟ &a&l$&a150'
+    - '&#eb984e➟ &d1.5&d&l经验提升2小时'
+    - '&#eb984e➟ &e0.5&e&l点数提升2小时'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '3':
+    material: lime_stained_glass
+    slot: 4
+    priority: 2
+    view_requirement:
+      requirements:
+        claimed:
+         type: has permission
+         permission: 'jobs.vipbaker.level1'
+    display_name: '&a&n等级 1'
+    hide_attributes: true
+    lore:
+    - '&7奖励已领取。'
+    - ''
+    - '&6奖励：'
+    - '&#eb984e➟ &a&l$&a150'
+    - '&#eb984e➟ &d1.5&d&l经验提升2小时'
+    - '&#eb984e➟ &e0.5&e&l点数提升2小时'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '4':
+    material: orange_stained_glass
+    slot: 4
+    priority: 1
+    update: true
+    view_requirement:
+      requirements:
+        level:
+         type: javascript
+         expression: "%jobsr_user_jlevel_Baker% >= 1"
+        perm:
+         type: "!has permission"
+         permission: 'jobs.vipbaker.level1'
+    display_name: '&#e67e22&n等级 1'
+    hide_attributes: true
+    lore:
+    - '&a点击以领取奖励！'
+    - ''
+    - '&6奖励：'
+    - '&#eb984e➟ &a&l$&a150'
+    - '&#eb984e➟ &d1.5&d&l经验提升2小时'
+    - '&#eb984e➟ &e0.5&e&l点数提升2小时'
+    left_click_commands:
+    - '[console] lp user %player_name% permission set jobs.vipbaker.level1'
+    - '[console] eco give %player_name% 150'
+    - '[console] lp user %player_name% permission settemp jobs.boost.Baker.exp.1.5 true 2h'
+    - '[console] lp user %player_name% permission settemp jobs.boost.Baker.points.0.5 true 2h'
+    - '[close]'
+```
+
 ## 注意事项 ⚠️
 
 - 翻译结果可能需要手动审核，以确保专业术语和上下文的准确性。
@@ -65,3 +249,4 @@ _prompt = ChatGPT_Prompts.prompts["en"]
 我们非常欢迎社区的反馈和贡献！
 
 如果这个项目对你有帮助，不妨给个⭐️支持一下吧！
+

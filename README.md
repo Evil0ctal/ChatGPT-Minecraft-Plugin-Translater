@@ -54,7 +54,7 @@ _prompt = ChatGPT_Prompts.prompts["en"]
 
 > 原始yml文件（英文），来自DeluxeMenus插件。
 
-```
+```yaml
 menu_title: '&8Vip Skill Tree | &6Baker'
 open_command:
 - jobs skilltree Baker vip
@@ -145,7 +145,7 @@ items:
 
 > 输出文件（中文）
 
-```
+```yaml
 menu_title: '&8Vip技能树 | &6面包师'
 open_command:
 - jobs skilltree Baker vip

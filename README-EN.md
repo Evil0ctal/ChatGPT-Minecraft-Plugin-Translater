@@ -52,7 +52,7 @@ This tool helps you translate Minecraft Java server plugin configuration yml fil
 
 > Original yml file (English), from DeluxeMenus plugin.
 
-```
+```yaml
 menu_title: '&8Vip Skill Tree | &6Baker'
 open_command:
 - jobs skilltree Baker vip
@@ -143,7 +143,7 @@ items:
 
 > Output file (Chinese)
 
-```
+```yaml
 menu_title: '&8Vip技能树 | &6面包师'
 open_command:
 - jobs skilltree Baker vip

@@ -7,30 +7,13 @@ class ChatGPT_Prompts:
     ChatGPT_Prompts class is used to store the prompts of ChatGPT model and the translated prompts in different languages for calling in the main function.
     """
 
-    def __init__(self):
+    def __init__(self, output_language: str = "Simplified Chinese"):
+        self.output_language = output_language
         self.prompts = {
-            # Chinese/中文
-            "zh": """
-                中文翻译Minecraft插件的YAML（`.yml`）配置文件，请遵循以下的规则对文件完成翻译：
-                1. 键名和属性名：YAML文件中的键（key）和属性名通常被插件代码直接引用，用于获取配置文件中的值。这些键名和属性名应保持原样，不进行翻译。
-                2. 命名空间和技术标识符：如`minecraft:diamond_sword`这样的命名空间和技术标识符是Minecraft和插件功能的一部分，它们需要保持原样，以确保游戏和插件的正常运作。
-                3. 中文和英文标点符号：使用英文标点符号:而不是：确保yml文件的结构不被破坏。
-                4. 命令和权限节点：插件中定义的命令（如`/give`）和权限节点（如`pluginname.command.give`）是与插件内部逻辑密切相关的，这些也需要保持原样，因为翻译会导致命令或权限无法被识别。
-                5. 格式化代码和颜色代码：YAML文件中可能会使用特殊的格式化代码（如`&c`表示红色文字）和颜色代码，这些是控制文本显示样式的，不应进行翻译。
-                6. 数据值和枚举值：某些配置选项可能接受一组特定的值（如`true`/`false`，或者特定的枚举值），这些值通常是代码逻辑的一部分，应当保留原文。
-                7. 特殊占位符和变量：如你之前提到的PlaceholderAPI变量（例如`%player_name%`），这些特殊的占位符和变量是动态替换内容的标记，必须保持不变。
-                8. 执行保留字：插件中包含如`[refresh]`，`[console]`，`[close]`，`[message]`等保留关键字，请不要翻译。
-                9. 物品材质：材质将作为图片显示在游戏中，如`material: green_stained_glass_pane`中的green_stained_glass_pane是游戏物品的ID，请不要翻译。
-                10. 特殊表达式：以特殊符号开头的为特殊条件表达式，如`type: "!has permission"`中的!has permission为表达式，请不要翻译。
-                11. yml文件缩进：注意yml文件的缩进，在有必要的情况下对文件开头或末尾插入`\n`自动换行符。
-                12. yml文件键名重复：yml文件中键名不允许重复，如有重复请修改键名。
-                13. 特殊的键名：如`requirements`开头的请不要翻译，保持原有格式输出。
-                14. 请注意不要添加多余符号：如当yml文件中有`view_requirement`或`type: javascript`时，不要添加```符号或其他符号。
-                请遵守上面的规则对文件进行翻译，并且不要修改输入文本的格式。
-                """,
-            # English/英文
-            "en": """
-                When translating Minecraft plugin YAML (`.yml`) configuration files into English, please adhere to the following rules for completing the translation:
+            # For short file/短文件
+            "short_file": f"""
+                When translating Minecraft plugin YAML (`.yml`) configuration files, please adhere to the following rules for completing the translation:
+                Target output language: {output_language}
                 1. Key and property names: Keys and property names in the YAML file are usually directly referenced by plugin code to retrieve values from the configuration file. These key and property names should remain unchanged and not be translated.
                 2. Namespaces and technical identifiers: Namespaces and technical identifiers, such as`minecraft:diamond_sword`, are part of Minecraft and plugin functionality. They need to remain unchanged to ensure the game and plugins operate correctly.
                 3. Chinese and English punctuation: Use English punctuation, such as`:`, instead of`：` to ensure the structure of the yml file is not disrupted.
@@ -46,5 +29,28 @@ class ChatGPT_Prompts:
                 13. Special key names: Key names starting with`requirements` should not be translated and kept in their original format.
                 14. Avoid adding extra symbols: When the YAML file contains`view_requirement` or`type: javascript`, do not add ``` symbols or other symbols.
                 Please follow the rules above for translating the file, and do not modify the format of the input text.
-                """
+                """,
+            # For long file/长文件
+            "long_file": f"""
+            # mission details:
+            You will be working with a batch of YAML configuration files for Minecraft plugins that have been converted into linear format for easy translation. Examples of linear formats and conversion rules have been given, and your goal is to translate the text content in the file that is directly facing the player, while ensuring that those technical keywords and code that are critical to the plugin's functionality and game logic remain intact.
+            ## Output language: {self.output_language}
+            ## SOP (Standard Operating Procedure) strategy:
+            1. **Keep key names and property names unchanged**: These are usually referenced directly by plugin code and are key to getting configuration values and should not be translated.
+            2. **Do not translate material naming (material)**: such as `minecraft:green_stained_glass_pane`, the game Items ID with an underline remains as it is to ensure that the game and plug-ins work properly.
+            3. **Use English punctuation marks**: Ensure the structural integrity of the YAML file and use punctuation marks such as English colons.
+            4. **Command and permission nodes remain as they are**: These are closely related to the internal logic of the plug-in, and translation may lead to unrecognizability.
+            5. **Formatting and color codes are not translated**: Codes such as `&d&l` are used to control the text display style and color and have specific functions in the game.
+            6. **Data values and enumeration values remain as they are**: These values are part of the code logic, such as `true`/`false`.
+            7. **Special placeholders and variables remain unchanged**: such as `%player_name%`, etc. These words with `%` symbols are used for dynamic content replacement.
+            8. **Reserved words are not translated**: keywords such as `[refresh]`, `[close]`, `[console]`,`[str]`, `[int]`, `[bool]`, `[list]`,`[float]`,`[|str]`, `[|int]`, `[|bool]`,`[|float]`), etc, and other words in symbols [] are not needed to be translated.
+            9. **Item material remains unchanged**: Generally, the key name is material or other values. These are the IDs of internal items in the game, such as `green_stained_glass_pane`, and do not need to be translated.
+            10. **Special expressions are not translated**: Expressions, such as `!has permission`, remain unchanged.
+            11. **Special key names such as `requirements` are not translated**: Keep the original format and content of these key names.
+            12. **Avoid adding unnecessary symbols**: For example, do not add unnecessary symbols for `view_requirement` or `type: javascript`, etc.
+            13. **No addition or deletion of content**: Follow the original YAML file content and do not modify it without authorization.
+            14. **Keep linear format unchanged**: Do not change the format and order of the input text.
+            # Note
+            Please follow the SOP policy above to appropriately translate direct-to-player text while keeping critical technical content intact to ensure the integrity of plugin functionality and game logic.
+            """
         }

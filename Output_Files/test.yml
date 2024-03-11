@@ -1,0 +1,808 @@
+menu_title: '&8Vip技能树 | &6烘焙师'
+open_command:
+- jobs skilltree Baker vip
+- job skilltree Baker vip
+size: 45
+open_requirement:
+    minimum_requirements: 1
+    stop_at_success: true
+    requirements:
+        perm1:
+            type: has permission
+            permission: jobs.all.vipmaxlevel
+        perm2:
+            type: has permission
+            permission: jobs.baker.vipmaxlevel
+update_interval: 1
+items:
+    '2':
+        material: red_stained_glass
+        slot: 4
+        priority: 3
+        display_name: '&4&n1级'
+        hide_attributes: true
+        lore:
+        - '&c注意！只有达到所需等级后方可领取'
+        - '&c|所需等级才可以领取。'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a150'
+        - '&#eb984e➟ &d1.5&d&l经验 &d加成2小时'
+        - '&#eb984e➟ &e0.5&e&l点数 &e加成2小时'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '3':
+        material: lime_stained_glass
+        slot: 4
+        priority: 2
+        view_requirement:
+            requirements:
+                claimed:
+                    type: has permission
+                    permission: jobs.vipbaker.level1
+        display_name: '&a&n1级'
+        hide_attributes: true
+        lore:
+        - '&7奖励已领取。'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a150'
+        - '&#eb984e➟ &d1.5&d&l经验 &d加成2小时'
+        - '&#eb984e➟ &e0.5&e&l点数 &e加成2小时'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '4':
+        material: orange_stained_glass
+        slot: 4
+        priority: 1
+        update: true
+        view_requirement:
+            requirements:
+                level:
+                    type: javascript
+                    expression: '%jobsr_user_jlevel_Baker% >= 1'
+                perm:
+                    type: '!has permission'
+                    permission: jobs.vipbaker.level1
+        display_name: '&#e67e22&n1级'
+        hide_attributes: true
+        lore:
+        - '&a点击领取奖励！'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a150'
+        - '&#eb984e➟ &d1.5&d&l经验 &d加成2小时'
+        - '&#eb984e➟ &e0.5&e&l点数 &e加成2小时'
+        left_click_commands:
+        - '[console] lp user %player_name% permission set jobs.vipbaker.level1'
+        - '[console] eco give %player_name% 150'
+        - '[console] lp user %player_name% permission settemp jobs.boost.Baker.exp.1.5
+            true 2h'
+        - '[console] lp user %player_name% permission settemp jobs.boost.Baker.points.0.5
+            true 2h'
+        - '[close]'
+    '5':
+        material: red_stained_glass
+        slot: 12
+        priority: 3
+        amount: 2
+        display_name: '&4&n25级'
+        hide_attributes: true
+        lore:
+        - '&c注意！只有达到所需等级后方可领取'
+        - '&c|所需等级才可以领取。'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a250'
+        - '&#eb984e➟ &a16个金苹果'
+        - '&#eb984e➟ &d2.0&d&l经验 &d加成6小时'
+        - '&#eb984e➟ &a1.0X &a&l金钱 &a加成6小时'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '6':
+        material: lime_stained_glass
+        slot: 12
+        priority: 2
+        amount: 2
+        view_requirement:
+            requirements:
+                claimed:
+                    type: has permission
+                    permission: jobs.vipbaker.level25
+        display_name: '&a&n25级'
+        hide_attributes: true
+        lore:
+        - '&7奖励已领取。'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a250'
+        - '&#eb984e➟ &a16个金苹果'
+        - '&#eb984e➟ &d2.0&d&l经验 &d加成6小时'
+        - '&#eb984e➟ &a1.0X &a&l金钱 &a加成6小时'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '7':
+        material: orange_stained_glass
+        slot: 12
+        priority: 1
+        amount: 2
+        update: true
+        view_requirement:
+            requirements:
+                level:
+                    type: javascript
+                    expression: '%jobsr_user_jlevel_Baker% >= 25'
+                perm:
+                    type: '!has permission'
+                    permission: jobs.vipbaker.level25
+        display_name: '&#e67e22&n等级 25'
+        hide_attributes: true
+        lore:
+        - '&a点击领取奖励！'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a250'
+        - '&#eb984e➟ &a16个金苹果'
+        - '&#eb984e➟ &d2.0&d&l经验 &d6小时内加成'
+        - '&#eb984e➟ &a1.0X &a&l金钱 &a6小时内加成'
+        left_click_commands:
+        - '[console] lp user %player_name% permission set jobs.vipbaker.level25'
+        - '[console] eco give %player_name% 250'
+        - '[console] minecraft:give %player_name% golden_apple 16'
+        - '[console] lp user %player_name% permission settemp jobs.boost.Baker.exp.2.5
+            true 6h'
+        - '[console] lp user %player_name% permission settemp jobs.boost.Baker.money.1.0
+            true 6h'
+        - '[close]'
+    '8':
+        material: red_stained_glass
+        slot: 13
+        priority: 3
+        amount: 3
+        display_name: '&4&n等级 50'
+        hide_attributes: true
+        lore:
+        - '&c注意！只能在达到指定等级后才能领取'
+        - '&c显示等级后才可进行领取操作'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a500'
+        - '&#eb984e➟ &a可使用物品'
+        - '&#eb984e➟ &e500&e&lP'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '9':
+        material: lime_stained_glass
+        slot: 13
+        priority: 2
+        amount: 3
+        view_requirement:
+            requirements:
+                claimed:
+                    type: has permission
+                    permission: jobs.vipbaker.level50
+        display_name: '&a&n等级 50'
+        hide_attributes: true
+        lore:
+        - '&7奖励已领取'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a500'
+        - '&#eb984e➟ &a可使用物品'
+        - '&#eb984e➟ &e500&e&lP'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '10':
+        material: orange_stained_glass
+        slot: 13
+        priority: 1
+        amount: 3
+        update: true
+        view_requirement:
+            requirements:
+                level:
+                    type: javascript
+                    expression: '%jobsr_user_jlevel_Baker% >= 50'
+                perm:
+                    type: '!has permission'
+                    permission: jobs.vipbaker.level50
+        display_name: '&#e67e22&n等级 50'
+        hide_attributes: true
+        lore:
+        - '&a点击领取奖励！'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a500'
+        - '&#eb984e➟ &a可使用物品'
+        - '&#eb984e➟ &e500&e&lP'
+        left_click_commands:
+        - '[console] lp user %player_name% permission set jobs.vipbaker.level50'
+        - '[console] eco give %player_name% 500'
+        - '[console] minecraft:give %player_name% cookie 128'
+        - '[console] minecraft:give %player_name% bread 64'
+        - '[console] minecraft:give %player_name% cake 1'
+        - '[console] minecraft:give %player_name% pumpkin_pie 32'
+        - '[console] minecraft:give %player_name% GOLDEN_CARROT 32'
+        - '[console] minecraft:give %player_name% cookie 64'
+        - '[console] jobs editpoints %player_name% add 500'
+        - '[close]'
+    '11':
+        material: red_stained_glass
+        slot: 14
+        priority: 3
+        amount: 4
+        display_name: '&4&n等级 75'
+        hide_attributes: true
+        lore:
+        -   - '&c注意！奖励只能在'
+            - str]你升级到指定等级后才能领取。
+            - str]
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a1000'
+        - '&#eb984e➟ &a64个金苹果'
+        - '&#eb984e➟ &d3.0&d&l经验值 &d增益 12小时'
+        - '&#eb984e➟ &a1.5倍 &a&l金钱 &a增益 12小时'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '12':
+        material: lime_stained_glass
+        slot: 14
+        priority: 2
+        amount: 4
+        view_requirement:
+            requirements:
+                claimed:
+                    type: has permission
+                    permission: jobs.vipbaker.level75
+        display_name: '&a&n等级 75'
+        hide_attributes: true
+        lore:
+        - '&7奖励已领取。'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a1000'
+        - '&#eb984e➟ &a64个金苹果'
+        - '&#eb984e➟ &d3.0&d&l经验值 &d增益 12小时'
+        - '&#eb984e➟ &a1.5倍 &a&l金钱 &a增益 12小时'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '13':
+        material: orange_stained_glass
+        slot: 14
+        priority: 1
+        amount: 4
+        update: true
+        view_requirement:
+            requirements:
+                level:
+                    type: javascript
+                    expression: '%jobsr_user_jlevel_Baker% >= 75'
+                perm:
+                    type: '!has permission'
+                    permission: jobs.vipbaker.level75
+        display_name: '&#e67e22&n等级 75'
+        hide_attributes: true
+        lore:
+        - '&a点击领取你的奖励！'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a1000'
+        - '&#eb984e➟ &a64个金苹果'
+        - '&#eb984e➟ &d3.0&d&l经验值 &d增益 12小时'
+        - '&#eb984e➟ &a1.5倍 &a&l金钱 &a增益 12小时'
+        left_click_commands:
+        - '[console] lp user %player_name% permission set jobs.vipbaker.level75'
+        - '[console] eco give %player_name% 1000'
+        - '[console] minecraft:give %player_name% golden_apple 64'
+        - '[console] lp user %player_name% permission settemp jobs.boost.Baker.exp.3.0
+            true 12h'
+        - '[console] lp user %player_name% permission settemp jobs.boost.Baker.money.1.5
+            true 12h'
+        - '[close]'
+    '14':
+        material: red_stained_glass
+        slot: 21
+        priority: 3
+        amount: 5
+        display_name: '&4&n等级 100'
+        hide_attributes: true
+        lore:
+        -   - '&c注意！奖励只能在'
+            - str]你升级到指定等级后才能领取。
+            - str]
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a2000'
+        - '&#eb984e➟ &a2个附魔金苹果'
+        - '&#eb984e➟ &d3.0&d&l经验值 &d增益 24小时'
+        - '&#eb984e➟ &a2.5倍 &a&l金钱 &a增益 24小时'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '15':
+        material: lime_stained_glass
+        slot: 21
+        priority: 2
+        amount: 5
+        view_requirement:
+            requirements:
+                claimed:
+                    type: has permission
+                    permission: jobs.vipbaker.level100
+        display_name: '&a&n等级 100'
+        hide_attributes: true
+        lore:
+        - '&7奖励已领取。'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a2000'
+        - '&#eb984e➟ &a2个附魔金苹果'
+        - '&#eb984e➟ &d3.0&d&l经验值 &d增益 24小时'
+        - '&#eb984e➟ &a2.5倍 &a&l金钱 &a增益 24小时'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '16':
+        material: orange_stained_glass
+        slot: 21
+        priority: 1
+        amount: 5
+        update: true
+        view_requirement:
+            requirements:
+                level:
+                    type: javascript
+                    expression: '%jobsr_user_jlevel_Baker% >= 100'
+                perm:
+                    type: '!has permission'
+                    permission: jobs.vipbaker.level100
+        display_name: '&#e67e22&n100级'
+        hide_attributes: true
+        lore:
+        - '&a点击领取奖励！'
+        - ''
+        - '&6奖励:'
+        - '&#eb984e➟ &a&l$&a2000'
+        - '&#eb984e➟ &a2个附魔金苹果'
+        - '&#eb984e➟ &d3.0&d&l经验值增益，持续24小时'
+        - '&#eb984e➟ &a2.5倍&a&l金钱增益，持续24小时'
+        left_click_commands:
+        - '[console] lp user %player_name% permission set jobs.vipbaker.level100'
+        - '[console] eco give %player_name% 2000'
+        - '[console] minecraft:give %player_name% enchanted_golden_apple 2'
+        - '[console] lp user %player_name% permission settemp jobs.boost.Baker.exp.3.0
+            true 24h'
+        - '[console] lp user %player_name% permission settemp jobs.boost.Baker.money.2.5
+            true 24h'
+        - '[close]'
+    '17':
+        material: red_stained_glass
+        slot: 22
+        priority: 3
+        amount: 6
+        display_name: '&4&n125级'
+        hide_attributes: true
+        lore:
+        - '&c注意！只能在达到所显示的等级后才能领取奖励！'
+        - '&c'
+        - ''
+        - '&6奖励:'
+        - '&#eb984e➟ &a&l$&a2500'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '18':
+        material: lime_stained_glass
+        slot: 22
+        priority: 2
+        amount: 6
+        view_requirement:
+            requirements:
+                claimed:
+                    type: has permission
+                    permission: jobs.vipbaker.level125
+        display_name: '&a&n125级'
+        hide_attributes: true
+        lore:
+        - '&7奖励已领取。'
+        - ''
+        - '&6奖励:'
+        - '&#eb984e➟ &a&l$&a2500'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '19':
+        material: orange_stained_glass
+        slot: 22
+        priority: 1
+        amount: 6
+        update: true
+        view_requirement:
+            requirements:
+                level:
+                    type: javascript
+                    expression: '%jobsr_user_jlevel_Baker% >= 125'
+                perm:
+                    type: '!has permission'
+                    permission: jobs.vipbaker.level125
+        display_name: '&#e67e22&n125级'
+        hide_attributes: true
+        lore:
+        - '&a点击领取奖励！'
+        - ''
+        - '&6奖励:'
+        - '&#eb984e➟ &a&l$&a2500'
+        left_click_commands:
+        - '[console] lp user %player_name% permission set jobs.vipbaker.level125'
+        - '[console] eco give %player_name% 2500'
+        - '[close]'
+    '20':
+        material: red_stained_glass
+        slot: 23
+        priority: 3
+        amount: 7
+        display_name: '&4&n150级'
+        hide_attributes: true
+        lore:
+        - '&c注意！只能在达到所显示的等级后才能领取奖励！'
+        - '&c'
+        - ''
+        - '&6奖励:'
+        - '&#eb984e➟ &a&l$&a3500'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '21':
+        material: lime_stained_glass
+        slot: 23
+        priority: 2
+        amount: 7
+        view_requirement:
+            requirements:
+                claimed:
+                    type: has permission
+                    permission: jobs.vipbaker.level150
+        display_name: '&a&n150级'
+        hide_attributes: true
+        lore:
+        - '&7奖励已领取。'
+        - ''
+        - '&6奖励:'
+        - '&#eb984e➟ &a&l$&a3500'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '22':
+        material: orange_stained_glass
+        slot: 23
+        priority: 1
+        amount: 7
+        update: true
+        view_requirement:
+            requirements:
+                level:
+                    type: javascript
+                    expression: '%jobsr_user_jlevel_Baker% >= 150'
+                perm:
+                    type: '!has permission'
+                    permission: jobs.vipbaker.level150
+        display_name: '&#e67e22&n等级 150'
+        hide_attributes: true
+        lore:
+        - '&a点击领取奖励！'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a3500'
+        left_click_commands:
+        - '[console] lp user %player_name% permission set jobs.vipbaker.level150'
+        - '[console] eco give %player_name% 3500'
+        - '[close]'
+    '23':
+        material: red_stained_glass
+        slot: 30
+        priority: 3
+        amount: 8
+        display_name: '&4&n等级 175'
+        hide_attributes: true
+        lore:
+        - '&c注意！只有达到所示等级后才能领取奖励。'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a5000'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '24':
+        material: lime_stained_glass
+        slot: 30
+        priority: 2
+        amount: 8
+        view_requirement:
+            requirements:
+                claimed:
+                    type: has permission
+                    permission: jobs.vipbaker.level175
+        display_name: '&a&n等级 175'
+        hide_attributes: true
+        lore:
+        - '&7奖励已领取。'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a5000'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '25':
+        material: orange_stained_glass
+        slot: 30
+        priority: 1
+        amount: 8
+        update: true
+        view_requirement:
+            requirements:
+                level:
+                    type: javascript
+                    expression: '%jobsr_user_jlevel_Baker% >= 175'
+                perm:
+                    type: '!has permission'
+                    permission: jobs.vipbaker.level175
+        display_name: '&#e67e22&n等级 175'
+        hide_attributes: true
+        lore:
+        - '&a点击领取奖励！'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a5000'
+        left_click_commands:
+        - '[console] lp user %player_name% permission set jobs.vipbaker.level175'
+        - '[console] eco give %player_name% 5000'
+        - '[close]'
+    '26':
+        material: red_stained_glass
+        slot: 31
+        priority: 3
+        amount: 9
+        display_name: '&4&n等级 200'
+        hide_attributes: true
+        lore:
+        - '&c注意！只有达到所示等级后才能领取奖励。'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a6500'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '27':
+        material: lime_stained_glass
+        slot: 31
+        priority: 2
+        amount: 9
+        view_requirement:
+            requirements:
+                claimed:
+                    type: has permission
+                    permission: jobs.vipbaker.level200
+        display_name: '&a&n等级 200'
+        hide_attributes: true
+        lore:
+        - '&7奖励已领取。'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a6500'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '28':
+        material: orange_stained_glass
+        slot: 31
+        priority: 1
+        amount: 9
+        update: true
+        view_requirement:
+            requirements:
+                level:
+                    type: javascript
+                    expression: '%jobsr_user_jlevel_Baker% >= 200'
+                perm:
+                    type: '!has permission'
+                    permission: jobs.vipbaker.level200
+        display_name: '&#e67e22&n200级'
+        hide_attributes: true
+        lore:
+        - '&a点击领取奖励！'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a6500'
+        left_click_commands:
+        - '[console] lp user %player_name% permission set jobs.vipbaker.level200'
+        - '[console] eco give %player_name% 6500'
+        - '[close]'
+    '29':
+        material: red_stained_glass
+        slot: 32
+        priority: 3
+        amount: 10
+        display_name: '&4&n225级'
+        hide_attributes: true
+        lore:
+        - '&c注意！只有达到指定等级后才能领取奖励。'
+        - '&c达到以下等级后才能领取奖励。'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a8000'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '30':
+        material: lime_stained_glass
+        slot: 32
+        priority: 2
+        amount: 10
+        view_requirement:
+            requirements:
+                claimed:
+                    type: has permission
+                    permission: jobs.vipbaker.level225
+        display_name: '&a&n225级'
+        hide_attributes: true
+        lore:
+        - '&7奖励已领取。'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a8000'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '31':
+        material: orange_stained_glass
+        slot: 32
+        priority: 1
+        amount: 10
+        update: true
+        view_requirement:
+            requirements:
+                level:
+                    type: javascript
+                    expression: '%jobsr_user_jlevel_Baker% >= 225'
+                perm:
+                    type: '!has permission'
+                    permission: jobs.vipbaker.level225
+        display_name: '&#e67e22&n225级'
+        hide_attributes: true
+        lore:
+        - '&a点击领取奖励！'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a8000'
+        left_click_commands:
+        - '[console] lp user %player_name% permission set jobs.vipbaker.level225'
+        - '[console] eco give %player_name% 8000'
+        - '[close]'
+    '32':
+        material: red_stained_glass
+        slot: 40
+        priority: 3
+        amount: 11
+        display_name: '&4&n250级'
+        hide_attributes: true
+        lore:
+        - '&c注意！只有达到指定等级后才能领取奖励。'
+        - '&c达到以下等级后才能领取奖励。'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a10000'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '33':
+        material: lime_stained_glass
+        slot: 40
+        priority: 2
+        amount: 11
+        view_requirement:
+            requirements:
+                claimed:
+                    type: has permission
+                    permission: jobs.vipbaker.level250
+        display_name: '&a&n250级'
+        hide_attributes: true
+        lore:
+        - '&7奖励已领取。'
+        - ''
+        - '&6奖励：'
+        - '&#eb984e➟ &a&l$&a10000'
+        left_click_commands:
+        - '[refresh]'
+        right_click_commands:
+        - '[refresh]'
+    '34':
+        material: orange_stained_glass
+        slot: 40
+        priority: 1
+        amount: 11
+        update: true
+        view_requirement:
+            requirements:
+                level:
+                    type: javascript
+                    expression: '%jobsr_user_jlevel_Baker% >= 250'
+                perm:
+                    type: '!has permission'
+                    permission: jobs.vipbaker.level250
+        display_name: '&#e67e22&n250级'
+        hide_attributes: false
+        lore:
+        - '&a点击领取奖励!'
+        - ''
+        - '&6奖励:'
+        - '&#eb984e➟ &a&l$&a10000'
+        left_click_commands:
+        - '[console] lp user %player_name% permission set jobs.vipbaker.level11'
+        - '[console] eco give %player_name% 10000'
+        - '[close]'
+    '100':
+        material: BARRIER
+        slots:
+        - 9
+        - 18
+        - 27
+        - 17
+        - 26
+        - 35
+        display_name: '&c[返回]'
+        lore:
+        - '&7点击返回'
+        - '&7到普通技能树菜单'
+        left_click_commands:
+        - '[openguimenu] skilltreebaker'
+        right_click_commands:
+        - '[openguimenu] skilltreebaker'
+    '101':
+        material: GRAY_STAINED_GLASS_PANE
+        display_name: ''
+        lore: []
+        slots:
+        - 1
+        - 10
+        - 19
+        - 28
+        - 37
+        - 7
+        - 16
+        - 25
+        - 34
+        - 43
+        - 0
+        - 8
+        - 36
+        - 44

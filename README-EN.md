@@ -4,13 +4,13 @@ Readme Language: [English](./README-EN.md) | [简体中文](./README.md)
 
 ## What is this? 🤔
 
-This tool helps you translate Minecraft Java server plugin configuration yml files into different languages. It is based on OpenAI's ChatGPT 3.5 model and comes with built-in prompts in both Chinese and English, ready to use right out of the box with an accuracy rate of up to 99%. Additionally, it supports splitting and merging large files, as well as batch processing files, to improve your work efficiency.
+This tool helps you translate Minecraft Java server plugin configuration yml files into different languages. It is based on OpenAI's ChatGPT 3.5 model and comes with built-in prompts in both Chinese and English, ready to use right out of the box with an accuracy rate of up to 99%. Additionally, it supports splitting and merging large files, as well as batch processing files, to improve your work efficiency, The processing of large yaml files uses the PKVPM algorithm to split and merge files. For specific implementation, please refer to: [PKVPM-Polymorphic Key-Value Path Mapping](https://github.com/PKVPM/PKVPM)
 
 ## Features 🚀
 
 - **High-Accuracy Translation**: Powered by OpenAI's ChatGPT 3.5 model, achieving an accuracy rate of 99%.
 - **Multilingual Support**: Comes with built-in Chinese and English prompts, supporting translations into more languages.
-- **Large File Handling**: Supports the splitting and merging of large files.
+- **Large File Handling**: Supports the splitting and merging of large files(using PKVPM algorithm).
 - **Batch File Processing**: Processes multiple configuration files at once.
 - **User-Friendly**: Simple and easy to use, ready to go.
 
@@ -28,8 +28,8 @@ This tool helps you translate Minecraft Java server plugin configuration yml fil
    
    - `python3 main.py`
    - Delete the remaining test files in the following two directories
-   - Place one or more yml configuration files into the specified input folder `Original_Files`.
-   - Run the script and check the output folder `ChatGPT_Translater_Output`.
+   - Place one or more yml configuration files into the specified input folder `Input_Files`.
+   - Run the script and check the output folder `Output_Files`.
 4. **Check Translation Results**:
    
    - After translation, check the files in the output folder.
@@ -41,11 +41,11 @@ This tool helps you translate Minecraft Java server plugin configuration yml fil
    You can edit in `main.py` to switch between the original and target languages:
    
    ```python
-   # Use Chinese prompts
-   prompt = ChatGPT_Prompts.prompts["zh"]
-   
-   # Use English prompts
-   _prompt = ChatGPT_Prompts.prompts["en"]
+   # 你可以在这自定义输出语言/You can customize the output language here
+   output_language = "Simplified Chinese"
+
+   # Use English as the output language
+   # output_language = "English"
    ```
 
 ## Test comparison 👁‍🗨

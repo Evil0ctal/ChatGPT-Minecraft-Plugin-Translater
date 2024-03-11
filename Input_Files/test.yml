@@ -1,0 +1,802 @@
+menu_title: '&8Vip Skill Tree | &6Baker'
+open_command:
+- jobs skilltree Baker vip
+- job skilltree Baker vip
+size: 45
+open_requirement:
+  minimum_requirements: 1
+  stop_at_success: true
+  requirements:
+    perm1:
+     type: has permission
+     permission: 'jobs.all.vipmaxlevel'
+    perm2:
+     type: has permission
+     permission: 'jobs.baker.vipmaxlevel'
+update_interval: 1
+items:
+################## VIP Skill Tree Levels
+  '2':
+    material: red_stained_glass
+    slot: 4
+    priority: 3
+    display_name: '&4&nLevel 1'
+    hide_attributes: true
+    lore:
+    - '&cAttention! Rewards can only be claimed'
+    - '&cafter you level up to the shown level.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a150'
+    - '&#eb984e➟ &d1.5&d&lXP &dboost for 2h'
+    - '&#eb984e➟ &e0.5&e&lP &eboost for 2h'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '3':
+    material: lime_stained_glass
+    slot: 4
+    priority: 2
+    view_requirement:
+      requirements:
+        claimed:
+         type: has permission
+         permission: 'jobs.vipbaker.level1'
+    display_name: '&a&nLevel 1'
+    hide_attributes: true
+    lore:
+    - '&7Reward has been claimed.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a150'
+    - '&#eb984e➟ &d1.5&d&lXP &dboost for 2h'
+    - '&#eb984e➟ &e0.5&e&lP &eboost for 2h'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '4':
+    material: orange_stained_glass
+    slot: 4
+    priority: 1
+    update: true
+    view_requirement:
+      requirements:
+        level:
+         type: javascript
+         expression: "%jobsr_user_jlevel_Baker% >= 1"
+        perm:
+         type: "!has permission"
+         permission: 'jobs.vipbaker.level1'
+    display_name: '&#e67e22&nLevel 1'
+    hide_attributes: true
+    lore:
+    - '&aClick to claim your reward!'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a150'
+    - '&#eb984e➟ &d1.5&d&lXP &dboost for 2h'
+    - '&#eb984e➟ &e0.5&e&lP &eboost for 2h'
+    left_click_commands:
+    - '[console] lp user %player_name% permission set jobs.vipbaker.level1'
+    - '[console] eco give %player_name% 150'
+    - '[console] lp user %player_name% permission settemp jobs.boost.Baker.exp.1.5 true 2h'
+    - '[console] lp user %player_name% permission settemp jobs.boost.Baker.points.0.5 true 2h'
+    - '[close]'
+  '5':
+    material: red_stained_glass
+    slot: 12
+    priority: 3
+    amount: 2
+    display_name: '&4&nLevel 25'
+    hide_attributes: true
+    lore:
+    - '&cAttention! Rewards can only be claimed'
+    - '&cafter you level up to the shown level.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a250'
+    - '&#eb984e➟ &a16x golden apples'
+    - '&#eb984e➟ &d2.0&d&lXP &dboost for 6h'
+    - '&#eb984e➟ &a1.0X &a&lMONEY &aboost for 6h'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '6':
+    material: lime_stained_glass
+    slot: 12
+    priority: 2
+    amount: 2
+    view_requirement:
+      requirements:
+        claimed:
+         type: has permission
+         permission: 'jobs.vipbaker.level25'
+    display_name: '&a&nLevel 25'
+    hide_attributes: true
+    lore:
+    - '&7Reward has been claimed.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a250'
+    - '&#eb984e➟ &a16x golden apples'
+    - '&#eb984e➟ &d2.0&d&lXP &dboost for 6h'
+    - '&#eb984e➟ &a1.0X &a&lMONEY &aboost for 6h'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '7':
+    material: orange_stained_glass
+    slot: 12
+    priority: 1
+    amount: 2
+    update: true
+    view_requirement:
+      requirements:
+        level:
+         type: javascript
+         expression: "%jobsr_user_jlevel_Baker% >= 25"
+        perm:
+         type: "!has permission"
+         permission: 'jobs.vipbaker.level25'
+    display_name: '&#e67e22&nLevel 25'
+    hide_attributes: true
+    lore:
+    - '&aClick to claim your reward!'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a250'
+    - '&#eb984e➟ &a16x golden apples'
+    - '&#eb984e➟ &d2.0&d&lXP &dboost for 6h'
+    - '&#eb984e➟ &a1.0X &a&lMONEY &aboost for 6h'
+    left_click_commands:
+    - '[console] lp user %player_name% permission set jobs.vipbaker.level25'
+    - '[console] eco give %player_name% 250'
+    - '[console] minecraft:give %player_name% golden_apple 16'
+    - '[console] lp user %player_name% permission settemp jobs.boost.Baker.exp.2.5 true 6h'
+    - '[console] lp user %player_name% permission settemp jobs.boost.Baker.money.1.0 true 6h'
+    - '[close]'
+  '8':
+    material: red_stained_glass
+    slot: 13
+    priority: 3
+    amount: 3
+    display_name: '&4&nLevel 50'
+    hide_attributes: true
+    lore:
+    - '&cAttention! Rewards can only be claimed'
+    - '&cafter you level up to the shown level.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a500'
+    - '&#eb984e➟ &aConsumable Items'
+    - '&#eb984e➟ &e500&e&lP'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '9':
+    material: lime_stained_glass
+    slot: 13
+    priority: 2
+    amount: 3
+    view_requirement:
+      requirements:
+        claimed:
+         type: has permission
+         permission: 'jobs.vipbaker.level50'
+    display_name: '&a&nLevel 50'
+    hide_attributes: true
+    lore:
+    - '&7Reward has been claimed.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a500'
+    - '&#eb984e➟ &aConsumable Items'
+    - '&#eb984e➟ &e500&e&lP'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '10':
+    material: orange_stained_glass
+    slot: 13
+    priority: 1
+    amount: 3
+    update: true
+    view_requirement:
+      requirements:
+        level:
+         type: javascript
+         expression: "%jobsr_user_jlevel_Baker% >= 50"
+        perm:
+         type: "!has permission"
+         permission: 'jobs.vipbaker.level50'
+    display_name: '&#e67e22&nLevel 50'
+    hide_attributes: true
+    lore:
+    - '&aClick to claim your reward!'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a500'
+    - '&#eb984e➟ &aConsumable Items'
+    - '&#eb984e➟ &e500&e&lP'
+    left_click_commands:
+    - '[console] lp user %player_name% permission set jobs.vipbaker.level50'
+    - '[console] eco give %player_name% 500'
+    - '[console] minecraft:give %player_name% cookie 128'
+    - '[console] minecraft:give %player_name% bread 64'
+    - '[console] minecraft:give %player_name% cake 1'
+    - '[console] minecraft:give %player_name% pumpkin_pie 32'
+    - '[console] minecraft:give %player_name% GOLDEN_CARROT 32'
+    - '[console] minecraft:give %player_name% cookie 64'
+    - '[console] jobs editpoints %player_name% add 500'
+    - '[close]'
+  '11':
+    material: red_stained_glass
+    slot: 14
+    priority: 3
+    amount: 4
+    display_name: '&4&nLevel 75'
+    hide_attributes: true
+    lore:
+    - '&cAttention! Rewards can only be claimed'
+    - '&cafter you level up to the shown level.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a1000'
+    - '&#eb984e➟ &a64x golden apples'
+    - '&#eb984e➟ &d3.0&d&lXP &dboost for 12h'
+    - '&#eb984e➟ &a1.5X &a&lMONEY &aboost for 12h'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '12':
+    material: lime_stained_glass
+    slot: 14
+    priority: 2
+    amount: 4
+    view_requirement:
+      requirements:
+        claimed:
+         type: has permission
+         permission: 'jobs.vipbaker.level75'
+    display_name: '&a&nLevel 75'
+    hide_attributes: true
+    lore:
+    - '&7Reward has been claimed.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a1000'
+    - '&#eb984e➟ &a64x golden apples'
+    - '&#eb984e➟ &d3.0&d&lXP &dboost for 12h'
+    - '&#eb984e➟ &a1.5X &a&lMONEY &aboost for 12h'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '13':
+    material: orange_stained_glass
+    slot: 14
+    priority: 1
+    amount: 4
+    update: true
+    view_requirement:
+      requirements:
+        level:
+         type: javascript
+         expression: "%jobsr_user_jlevel_Baker% >= 75"
+        perm:
+         type: "!has permission"
+         permission: 'jobs.vipbaker.level75'
+    display_name: '&#e67e22&nLevel 75'
+    hide_attributes: true
+    lore:
+    - '&aClick to claim your reward!'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a1000'
+    - '&#eb984e➟ &a64x golden apples'
+    - '&#eb984e➟ &d3.0&d&lXP &dboost for 12h'
+    - '&#eb984e➟ &a1.5X &a&lMONEY &aboost for 12h'
+    left_click_commands:
+    - '[console] lp user %player_name% permission set jobs.vipbaker.level75'
+    - '[console] eco give %player_name% 1000'
+    - '[console] minecraft:give %player_name% golden_apple 64'
+    - '[console] lp user %player_name% permission settemp jobs.boost.Baker.exp.3.0 true 12h'
+    - '[console] lp user %player_name% permission settemp jobs.boost.Baker.money.1.5 true 12h'
+    - '[close]'
+  '14':
+    material: red_stained_glass
+    slot: 21
+    priority: 3
+    amount: 5
+    display_name: '&4&nLevel 100'
+    hide_attributes: true
+    lore:
+    - '&cAttention! Rewards can only be claimed'
+    - '&cafter you level up to the shown level.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a2000'
+    - '&#eb984e➟ &a2x enchanted golden apples'
+    - '&#eb984e➟ &d3.0&d&lXP &dboost for 24h'
+    - '&#eb984e➟ &a2.5X &a&lMONEY &aboost for 24h'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '15':
+    material: lime_stained_glass
+    slot: 21
+    priority: 2
+    amount: 5
+    view_requirement:
+      requirements:
+        claimed:
+         type: has permission
+         permission: 'jobs.vipbaker.level100'
+    display_name: '&a&nLevel 100'
+    hide_attributes: true
+    lore:
+    - '&7Reward has been claimed.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a2000'
+    - '&#eb984e➟ &a2x enchanted golden apples'
+    - '&#eb984e➟ &d3.0&d&lXP &dboost for 24h'
+    - '&#eb984e➟ &a2.5X &a&lMONEY &aboost for 24h'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '16':
+    material: orange_stained_glass
+    slot: 21
+    priority: 1
+    amount: 5
+    update: true
+    view_requirement:
+      requirements:
+        level:
+         type: javascript
+         expression: "%jobsr_user_jlevel_Baker% >= 100"
+        perm:
+         type: "!has permission"
+         permission: 'jobs.vipbaker.level100'
+    display_name: '&#e67e22&nLevel 100'
+    hide_attributes: true
+    lore:
+    - '&aClick to claim your reward!'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a2000'
+    - '&#eb984e➟ &a2x enchanted golden apples'
+    - '&#eb984e➟ &d3.0&d&lXP &dboost for 24h'
+    - '&#eb984e➟ &a2.5X &a&lMONEY &aboost for 24h'
+    left_click_commands:
+    - '[console] lp user %player_name% permission set jobs.vipbaker.level100'
+    - '[console] eco give %player_name% 2000'
+    - '[console] minecraft:give %player_name% enchanted_golden_apple 2'
+    - '[console] lp user %player_name% permission settemp jobs.boost.Baker.exp.3.0 true 24h'
+    - '[console] lp user %player_name% permission settemp jobs.boost.Baker.money.2.5 true 24h'
+    - '[close]'
+  '17':
+    material: red_stained_glass
+    slot: 22
+    priority: 3
+    amount: 6
+    display_name: '&4&nLevel 125'
+    hide_attributes: true
+    lore:
+    - '&cAttention! Rewards can only be claimed'
+    - '&cafter you level up to the shown level.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a2500'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '18':
+    material: lime_stained_glass
+    slot: 22
+    priority: 2
+    amount: 6
+    view_requirement:
+      requirements:
+        claimed:
+         type: has permission
+         permission: 'jobs.vipbaker.level125'
+    display_name: '&a&nLevel 125'
+    hide_attributes: true
+    lore:
+    - '&7Reward has been claimed.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a2500'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '19':
+    material: orange_stained_glass
+    slot: 22
+    priority: 1
+    amount: 6
+    update: true
+    view_requirement:
+      requirements:
+        level:
+         type: javascript
+         expression: "%jobsr_user_jlevel_Baker% >= 125"
+        perm:
+         type: "!has permission"
+         permission: 'jobs.vipbaker.level125'
+    display_name: '&#e67e22&nLevel 125'
+    hide_attributes: true
+    lore:
+    - '&aClick to claim your reward!'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a2500'
+    left_click_commands:
+    - '[console] lp user %player_name% permission set jobs.vipbaker.level125'
+    - '[console] eco give %player_name% 2500'
+    - '[close]'
+  '20':
+    material: red_stained_glass
+    slot: 23
+    priority: 3
+    amount: 7
+    display_name: '&4&nLevel 150'
+    hide_attributes: true
+    lore:
+    - '&cAttention! Rewards can only be claimed'
+    - '&cafter you level up to the shown level.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a3500'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '21':
+    material: lime_stained_glass
+    slot: 23
+    priority: 2
+    amount: 7
+    view_requirement:
+      requirements:
+        claimed:
+         type: has permission
+         permission: 'jobs.vipbaker.level150'
+    display_name: '&a&nLevel 150'
+    hide_attributes: true
+    lore:
+    - '&7Reward has been claimed.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a3500'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '22':
+    material: orange_stained_glass
+    slot: 23
+    priority: 1
+    amount: 7
+    update: true
+    view_requirement:
+      requirements:
+        level:
+         type: javascript
+         expression: "%jobsr_user_jlevel_Baker% >= 150"
+        perm:
+         type: "!has permission"
+         permission: 'jobs.vipbaker.level150'
+    display_name: '&#e67e22&nLevel 150'
+    hide_attributes: true
+    lore:
+    - '&aClick to claim your reward!'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a3500'
+    left_click_commands:
+    - '[console] lp user %player_name% permission set jobs.vipbaker.level150'
+    - '[console] eco give %player_name% 3500'
+    - '[close]'
+  '23':
+    material: red_stained_glass
+    slot: 30
+    priority: 3
+    amount: 8
+    display_name: '&4&nLevel 175'
+    hide_attributes: true
+    lore:
+    - '&cAttention! Rewards can only be claimed'
+    - '&cafter you level up to the shown level.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a5000'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '24':
+    material: lime_stained_glass
+    slot: 30
+    priority: 2
+    amount: 8
+    view_requirement:
+      requirements:
+        claimed:
+         type: has permission
+         permission: 'jobs.vipbaker.level175'
+    display_name: '&a&nLevel 175'
+    hide_attributes: true
+    lore:
+    - '&7Reward has been claimed.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a5000'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '25':
+    material: orange_stained_glass
+    slot: 30
+    priority: 1
+    amount: 8
+    update: true
+    view_requirement:
+      requirements:
+        level:
+         type: javascript
+         expression: "%jobsr_user_jlevel_Baker% >= 175"
+        perm:
+         type: "!has permission"
+         permission: 'jobs.vipbaker.level175'
+    display_name: '&#e67e22&nLevel 175'
+    hide_attributes: true
+    lore:
+    - '&aClick to claim your reward!'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a5000'
+    left_click_commands:
+    - '[console] lp user %player_name% permission set jobs.vipbaker.level175'
+    - '[console] eco give %player_name% 5000'
+    - '[close]'
+  '26':
+    material: red_stained_glass
+    slot: 31
+    priority: 3
+    amount: 9
+    display_name: '&4&nLevel 200'
+    hide_attributes: true
+    lore:
+    - '&cAttention! Rewards can only be claimed'
+    - '&cafter you level up to the shown level.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a6500'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '27':
+    material: lime_stained_glass
+    slot: 31
+    priority: 2
+    amount: 9
+    view_requirement:
+      requirements:
+        claimed:
+         type: has permission
+         permission: 'jobs.vipbaker.level200'
+    display_name: '&a&nLevel 200'
+    hide_attributes: true
+    lore:
+    - '&7Reward has been claimed.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a6500'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '28':
+    material: orange_stained_glass
+    slot: 31
+    priority: 1
+    amount: 9
+    update: true
+    view_requirement:
+      requirements:
+        level:
+         type: javascript
+         expression: "%jobsr_user_jlevel_Baker% >= 200"
+        perm:
+         type: "!has permission"
+         permission: 'jobs.vipbaker.level200'
+    display_name: '&#e67e22&nLevel 200'
+    hide_attributes: true
+    lore:
+    - '&aClick to claim your reward!'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a6500'
+    left_click_commands:
+    - '[console] lp user %player_name% permission set jobs.vipbaker.level200'
+    - '[console] eco give %player_name% 6500'
+    - '[close]'
+  '29':
+    material: red_stained_glass
+    slot: 32
+    priority: 3
+    amount: 10
+    display_name: '&4&nLevel 225'
+    hide_attributes: true
+    lore:
+    - '&cAttention! Rewards can only be claimed'
+    - '&cafter you level up to the shown level.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a8000'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '30':
+    material: lime_stained_glass
+    slot: 32
+    priority: 2
+    amount: 10
+    view_requirement:
+      requirements:
+        claimed:
+         type: has permission
+         permission: 'jobs.vipbaker.level225'
+    display_name: '&a&nLevel 225'
+    hide_attributes: true
+    lore:
+    - '&7Reward has been claimed.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a8000'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '31':
+    material: orange_stained_glass
+    slot: 32
+    priority: 1
+    amount: 10
+    update: true
+    view_requirement:
+      requirements:
+        level:
+         type: javascript
+         expression: "%jobsr_user_jlevel_Baker% >= 225"
+        perm:
+         type: "!has permission"
+         permission: 'jobs.vipbaker.level225'
+    display_name: '&#e67e22&nLevel 225'
+    hide_attributes: true
+    lore:
+    - '&aClick to claim your reward!'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a8000'
+    left_click_commands:
+    - '[console] lp user %player_name% permission set jobs.vipbaker.level225'
+    - '[console] eco give %player_name% 8000'
+    - '[close]'
+  '32':
+    material: red_stained_glass
+    slot: 40
+    priority: 3
+    amount: 11
+    display_name: '&4&nLevel 250'
+    hide_attributes: true
+    lore:
+    - '&cAttention! Rewards can only be claimed'
+    - '&cafter you level up to the shown level.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a10000'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '33':
+    material: lime_stained_glass
+    slot: 40
+    priority: 2
+    amount: 11
+    view_requirement:
+      requirements:
+        claimed:
+         type: has permission
+         permission: 'jobs.vipbaker.level250'
+    display_name: '&a&nLevel 250'
+    hide_attributes: true
+    lore:
+    - '&7Reward has been claimed.'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a10000'
+    left_click_commands:
+    - '[refresh]'
+    right_click_commands:
+    - '[refresh]'
+  '34':
+    material: orange_stained_glass
+    slot: 40
+    priority: 1
+    amount: 11
+    update: true
+    view_requirement:
+      requirements:
+        level:
+         type: javascript
+         expression: "%jobsr_user_jlevel_Baker% >= 250"
+        perm:
+         type: "!has permission"
+         permission: 'jobs.vipbaker.level250'
+    display_name: '&#e67e22&nLevel 250'
+    hide_attributes: true
+    lore:
+    - '&aClick to claim your reward!'
+    - ''
+    - '&6Rewards:'
+    - '&#eb984e➟ &a&l$&a10000'
+    left_click_commands:
+    - '[console] lp user %player_name% permission set jobs.vipbaker.level11'
+    - '[console] eco give %player_name% 10000'
+    - '[close]'
+################## Other Items
+  '100':
+    material: BARRIER
+    slots:
+    - 9
+    - 18
+    - 27
+    - 17
+    - 26
+    - 35
+    display_name: '&c[Go Back]'
+    lore:
+    - '&7Click to go back'
+    - '&7to the normal skilltree menu'
+    left_click_commands:
+    - '[openguimenu] skilltreebaker'
+    right_click_commands:
+    - '[openguimenu] skilltreebaker'
+  '101':
+    material: GRAY_STAINED_GLASS_PANE
+    display_name: ''
+    lore: []
+    slots:
+    - 1
+    - 10
+    - 19
+    - 28
+    - 37
+    - 7
+    - 16
+    - 25
+    - 34
+    - 43
+    - 0
+    - 8
+    - 36
+    - 44

@@ -16,5 +16,5 @@ pydantic_core==2.16.3
 regex==2023.12.25
 sniffio==1.3.1
 tqdm==4.66.3
-typing_extensions==4.10.0
+typing_extensions>=4.11
 pkvpm==1.0.1
